@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PDF 메모 · PC에서 받기</title>
+<meta name="description" content="누르면 바로 메모, 원본 PDF는 그대로. 무료 · 광고·로그인 없음. 윈도우·맥용 PDF 뷰어.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="PDF 메모 · PC에서 받기">
+<meta property="og:description" content="누르면 바로 메모, 원본 PDF는 그대로. 무료 · 광고·로그인 없음. 윈도우·맥용 PDF 뷰어.">
+<meta property="og:url" content="https://pdfmemo.github.io/pdf-memo/">
+<meta property="og:image" content="https://pdfmemo.github.io/pdf-memo/screen.png">
+<meta property="og:locale" content="ko_KR">
+<link rel="icon" href="data:,">
+<!-- 추적 없음: 분석 스크립트·외부 글꼴·CDN·쿠키·입력 칸이 없다. 이 파일 하나로 끝난다(위 보안 정책이 바깥 요청을 모두 막음). 색은 앱과 같다. -->
+<style>
+:root{--paper:#fbfbfa;--ink:#151515;--muted:#62625f;--rule:#d5d5d1;--soft:#efefec;--blue:#1a52c4;--hl:#ffe766;
+  --f-body:"Malgun Gothic","맑은 고딕","Apple SD Gothic Neo","Noto Sans KR","Noto Sans CJK KR",system-ui,sans-serif;
+  --f-mono:Consolas,ui-monospace,Menlo,monospace;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--paper:#131313;--ink:#ececea;--muted:#a2a29e;--rule:#3a3a37;--soft:#1f1f1e;--blue:#86aeff;color-scheme:dark}}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:600px;margin:0 auto;padding:28px 20px 48px}
+.head{border-bottom:2px solid var(--ink);padding-bottom:10px;margin-bottom:22px}
+h1{font-size:26px;margin:0;line-height:1.3}
+.lede{margin:6px 0 0;color:var(--muted);word-break:keep-all}
+h2{font-size:17px;margin:28px 0 8px}
+p{margin:8px 0;word-break:keep-all}
+.big{font-size:clamp(19px,5.6vw,22px);font-weight:700;line-height:1.5;margin:0 0 8px}
+.nw{white-space:nowrap}
+mark{background:var(--hl);color:#151515;padding:0 2px}
+.muted{color:var(--muted)}
+.small{font-size:14px}
+a{color:var(--blue);text-underline-offset:2px}
+.btns{display:grid;gap:10px;margin:18px 0 12px}
+.btn{display:flex;align-items:center;justify-content:center;min-height:50px;padding:10px 16px;border:1.5px solid var(--ink);border-radius:4px;
+  background:var(--paper);color:var(--ink);font:inherit;font-weight:700;text-align:center;text-decoration:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.btn:hover{background:var(--soft)}
+.btn.pri{background:var(--ink);color:var(--paper)}
+.btn.pri:hover{opacity:.88}
+.btn:focus-visible,a:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.url{font-family:var(--f-mono);font-size:14px;background:var(--soft);border:1px solid var(--rule);border-radius:4px;padding:8px 10px;word-break:break-all;-webkit-user-select:all;user-select:all}
+.dl{list-style:none;margin:0;padding:0;border-bottom:1px solid var(--rule)}
+.dl li{border-top:1px solid var(--rule);padding:10px 2px;word-break:keep-all}
+.dl a{font-weight:700;margin-right:6px}
+.steps{margin:8px 0;padding-left:20px}
+.steps li{margin:6px 0;word-break:keep-all}
+.switch{margin-top:30px;font-size:14px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+[hidden]{display:none!important}
+html[data-view="m"] #pc,html[data-view="pc"] #m{display:none}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="head">
+<h1>PDF 메모</h1>
+<p class="lede">누르면 바로 메모, 원본 PDF는 그대로 · 무료 · 광고·로그인 없음</p>
+</header>
+
+<section id="m" aria-label="휴대폰에서 링크 보내 두기">
+<p class="big">PDF 메모는 <span class="nw"><mark>PC(윈도우·맥)용</mark>이에요.</span><br>지금 링크를 나에게 보내 두세요</p>
+<p class="muted">PC에서 이 주소를 열면 바로 받을 수 있어요.</p>
+<div class="btns">
+<button type="button" class="btn pri" id="share" hidden>공유하기</button>
+<button type="button" class="btn" id="copy">링크 복사</button>
+<a class="btn" id="mail" href="mailto:?subject=PDF%20%EB%A9%94%EB%AA%A8%20%C2%B7%20PC%EC%97%90%EC%84%9C%20%EB%B0%9B%EA%B8%B0&amp;body=PC%EC%97%90%EC%84%9C%20%EC%9D%B4%20%EC%A3%BC%EC%86%8C%EB%A5%BC%20%EC%97%B4%EB%A9%B4%20PDF%20%EB%A9%94%EB%AA%A8%EB%A5%BC%20%EB%B0%9B%EC%9D%84%20%EC%88%98%20%EC%9E%88%EC%96%B4%EC%9A%94.%0D%0Ahttps%3A%2F%2Fpdfmemo.github.io%2Fpdf-memo%2F">내 메일로 보내기</a>
+</div>
+<p class="small muted" id="hint-share" hidden>공유하기에서 카카오톡 「나와의 채팅」을 고르면 PC 카카오톡에서 바로 열 수 있어요.</p>
+<p class="small muted" id="hint-copy">복사한 링크를 카카오톡 「나와의 채팅」에 붙여 두면 PC 카카오톡에서 바로 열 수 있어요.</p>
+<p class="url" id="url">https://pdfmemo.github.io/pdf-memo/</p>
+<p class="switch"><a href="#pc">PC에서 받는 화면 보기</a></p>
+</section>
+
+<section id="pc" aria-label="PC에서 받기">
+<p>PDF를 보다가 누른 자리에 바로 메모하는 무료 PDF 뷰어예요. 쓰고 Enter를 누르면 작은 번호 핀으로 남고, 저장 버튼 없이 자동 저장돼요.</p>
+<h2>윈도우 10·11</h2>
+<div class="btns"><a class="btn pri" href="https://apps.microsoft.com/detail/9N7TG6FP2K48?cid=landing">마이크로소프트 스토어에서 받기</a></div>
+<p class="small muted">경고 창 없이 설치되고, 새 판이 나오면 스토어가 알아서 업데이트해요.</p>
+<p class="small"><b>스토어가 막힌 PC</b></p>
+<ul class="dl">
+<li><a href="https://github.com/pdfmemo/pdf-memo/releases/latest/download/PDF-Memo-Windows.zip">압축판 받기</a><span class="small muted">약 5.9MB · 압축을 풀고 PDFMemo.exe를 열면 설치 없이 바로 켜져요</span></li>
+<li><a href="https://github.com/pdfmemo/pdf-memo/releases/latest/download/PDF-Memo-Windows-Setup.exe">설치판 받기</a><span class="small muted">약 5MB</span></li>
+</ul>
+<h2>맥</h2>
+<ul class="dl">
+<li><a href="https://github.com/pdfmemo/pdf-memo/releases/latest/download/PDF-Memo-Mac.dmg">맥용 받기</a><span class="small muted">약 11.5MB · macOS 13.3 이상, 애플 실리콘·인텔</span></li>
+</ul>
+<h2>처음 열 때</h2>
+<p class="small">혼자 만든 무료 프로그램이라 돈을 내고 받는 서명이 없어서, 여기서 받은 판은 처음 한 번 경고가 떠요. 스토어판은 경고가 없어요.</p>
+<ul class="steps small">
+<li><b>윈도우</b>: 파란 「Windows의 PC 보호」 창이 뜨면 「추가 정보」를 누르고 「실행」을 눌러요. 브라우저나 디펜더가 내려받기를 막으면 압축판을 받아 주세요.</li>
+<li><b>맥</b>: dmg를 열어 「PDF 메모」를 응용 프로그램 폴더로 옮긴 뒤 열어요. 알림이 뜨면 macOS 15 이상은 「완료」를 누르고(「휴지통으로 이동」은 누르지 마세요) 시스템 설정 &gt; 개인정보 보호 및 보안에서 「그래도 열기」를 눌러요. macOS 13·14는 Control 키를 누른 채 클릭해 「열기」를 눌러요.</li>
+</ul>
+<p class="small muted">판마다 바뀐 점은 <a href="https://github.com/pdfmemo/pdf-memo/releases">릴리스</a>에, 업데이트 소식과 기능 제안은 인스타그램 <a href="https://www.instagram.com/pdfmemo3777/">@pdfmemo3777</a>에 있어요.</p>
+<p class="switch"><a href="#m">휴대폰이라면: 링크를 나에게 보내 두기</a></p>
+</section>
+<p class="sr" id="live" aria-live="polite"></p>
+</main>
+<script>
+(function () {
+  var PAGE = 'https://pdfmemo.github.io/pdf-memo/';
+  var root = document.documentElement;
+  var ua = navigator.userAgent || '';
+  var uad = navigator.userAgentData;
+  // 휴대폰·태블릿이면 링크 보내 두기 화면, 아니면 PC 받기 화면. 주소 끝 #pc · #m 으로 바꿔 볼 수 있다.
+  var phone = !!(uad && uad.mobile) || /Android|iPhone|iPad|iPod|Mobile|IEMobile|Opera Mini/i.test(ua) ||
+    (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+  function pick() {
+    var h = location.hash;
+    root.setAttribute('data-view', h === '#pc' ? 'pc' : h === '#m' ? 'm' : (phone ? 'm' : 'pc'));
+    window.scrollTo(0, 0);
+  }
+  pick();
+  window.addEventListener('hashchange', pick);
+
+  var live = document.getElementById('live');
+  var share = document.getElementById('share');
+  var copy = document.getElementById('copy');
+  var url = document.getElementById('url');
+  function say(btn, text) {
+    clearTimeout(btn._t);
+    if (!btn._o) btn._o = btn.textContent;
+    btn.textContent = text;
+    live.textContent = text;
+    btn._t = setTimeout(function () { btn.textContent = btn._o; }, 1500);
+  }
+  function fallback() {
+    var r = document.createRange();
+    r.selectNodeContents(url);
+    var s = window.getSelection();
+    s.removeAllRanges();
+    s.addRange(r);
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) {}
+    if (ok) { s.removeAllRanges(); say(copy, '복사됨'); }
+    else say(copy, '아래 주소를 길게 눌러 복사해 주세요');
+  }
+  function doCopy() {
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(PAGE).then(function () { say(copy, '복사됨'); }, fallback);
+    } else {
+      fallback();
+    }
+  }
+  copy.addEventListener('click', doCopy);
+
+  // 공유 창(Web Share)이 있는 브라우저만 공유하기를 보인다. 인스타 안 브라우저처럼 없으면 숨기고 복사로 대신한다.
+  if (navigator.share) {
+    share.hidden = false;
+    document.getElementById('hint-share').hidden = false;
+    document.getElementById('hint-copy').hidden = true;
+    share.addEventListener('click', function () {
+      navigator.share({ title: 'PDF 메모', text: 'PC에서 열어 PDF 메모 받기', url: PAGE })
+        .catch(function (e) { if (!e || e.name !== 'AbortError') doCopy(); });
+    });
+  }
+})();
+</script>
+</body>
+</html>
