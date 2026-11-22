@@ -8,17 +8,16 @@ PDF를 보다가 메모하고 싶은 곳을 누르면 그 자리에 메모 창�
 
 ## 내려받기
 
-- 윈도우: [설치판 받기](https://github.com/pdfmemo/pdf-memo/releases/latest/download/PDF-Memo-Windows-Setup.exe)
-- 윈도우(설치판이 막힐 때): [압축판 받기](https://github.com/pdfmemo/pdf-memo/releases/latest/download/PDF-Memo-Windows.zip). 압축을 풀고 `PDFMemo.exe`를 열면 설치 없이 바로 켜집니다.
+- 윈도우: [마이크로소프트 스토어에서 받기](https://apps.microsoft.com/detail/9N7TG6FP2K48?cid=github). 경고 창 없이 설치되고, 새 판이 나오면 스토어가 알아서 업데이트합니다.
+- 윈도우(스토어가 막힌 PC): [압축판 받기](https://github.com/pdfmemo/pdf-memo/releases/latest/download/PDF-Memo-Windows.zip). 압축을 풀고 `PDFMemo.exe`를 열면 설치 없이 바로 켜집니다.
+- 윈도우(스토어가 막힌 PC): [설치판 받기](https://github.com/pdfmemo/pdf-memo/releases/latest/download/PDF-Memo-Windows-Setup.exe)
 - 맥(macOS 13.3 이상, 애플 실리콘·인텔): [맥용 받기](https://github.com/pdfmemo/pdf-memo/releases/latest/download/PDF-Memo-Mac.dmg)
-
-마이크로소프트 스토어에서도 받을 수 있습니다. 스토어판은 경고 창 없이 설치되고, 새 판이 나오면 스토어가 알아서 업데이트합니다. [스토어에서 받기](https://apps.microsoft.com/detail/9N7TG6FP2K48)
 
 판마다 바뀐 점은 [릴리스](https://github.com/pdfmemo/pdf-memo/releases)에 적어 둡니다.
 
 ## 처음 열 때
 
-혼자 만든 무료 프로그램이라 돈을 내고 받는 서명이 없습니다. 그래서 처음 한 번은 경고가 뜹니다.
+혼자 만든 무료 프로그램이라 돈을 내고 받는 서명이 없습니다. 그래서 여기서 받은 판은 처음 한 번 경고가 뜹니다. 스토어판은 경고가 없습니다.
 
 **윈도우**
 
